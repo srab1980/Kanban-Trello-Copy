@@ -1,7 +1,8 @@
 # TaskFlow
 
-TaskFlow is a Trello-inspired Kanban board built with Next.js 14 and TypeScript.
-It allows you to manage projects in real time with boards, lists and cards.
+TaskFlow is a Trello-inspired Kanban board built with **Next.js 14** and **TypeScript**.
+It lets you collaborate on projects using boards, lists and cards while updates are
+synced in real time via WebSockets.
 
 ## Features
 
@@ -10,11 +11,13 @@ It allows you to manage projects in real time with boards, lists and cards.
 - **Lists and cards** with drag and drop support
 - **Real-time updates** via Socket.io
 - **Comments and activity log** on each card
+- **Invite teammates** to collaborate on boards
+- **OAuth sign-in** with Google and GitHub
 
 ## Installation
 
 1. Clone the repository
-2. Copy `.env.example` to `.env` and adjust the values
+2. Copy `.env.example` to `.env` and fill in your OAuth credentials and database URL
 3. Start PostgreSQL using `docker-compose up -d`
 4. Install dependencies:
    ```bash
@@ -24,7 +27,11 @@ It allows you to manage projects in real time with boards, lists and cards.
    ```bash
    npx prisma migrate dev --name init
    ```
-6. Start the development server:
+6. Generate the Prisma client:
+   ```bash
+   npx prisma generate
+   ```
+7. Start the development server:
    ```bash
    npm run dev
    ```
