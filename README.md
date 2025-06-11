@@ -23,6 +23,8 @@ synced in real time via WebSockets.
    ```bash
    npm install
    ```
+   If you encounter TypeScript errors about missing Node types, verify that
+   dev dependencies were installed correctly.
 5. Run database migrations:
    ```bash
    npx prisma migrate dev --name init

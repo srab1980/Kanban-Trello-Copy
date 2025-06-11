@@ -18,6 +18,8 @@ model User {
   sessions      Session[]
   boards        BoardMembership[]
   cardAssignments CardAssignment[]
+  comments      Comment[]
+  activities    Activity[]
 }
 
 model Account {
