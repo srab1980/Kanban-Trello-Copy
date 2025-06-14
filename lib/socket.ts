@@ -5,7 +5,6 @@ import type { Server as HTTPServer } from 'http';
  * Hold a single Socket.io instance so API routes can
  * share connections without creating new servers.
  */
-
 let io: Server | null = null;
 
 /**
