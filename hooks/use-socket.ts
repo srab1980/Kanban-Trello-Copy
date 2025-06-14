@@ -4,20 +4,20 @@
  *
  * @param url URL of the Socket.io server
  */
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
-
-let socket: Socket | null = null;
 
 /**
  * Create and return a Socket.io client instance.
  */
 export function useSocket(url: string) {
+  const socketRef = useRef<Socket | null>(null);
   useEffect(() => {
-    socket = io(url);
+    socketRef.current = io(url);
     return () => {
-      socket?.disconnect();
+      socketRef.current?.disconnect();
+      socketRef.current = null;
     };
   }, [url]);
-  return socket;
+  return socketRef.current;
 }
